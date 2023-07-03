@@ -5,9 +5,12 @@ package projects.service;
 
 
 import java.util.List;
-
+import java.util.NoSuchElementException;
 import projects.dao.ProjectDao;
 import projects.entity.Project;
+
+
+
 
 public class ProjectService {
 	private ProjectDao projectDao = new ProjectDao ();
@@ -18,32 +21,14 @@ public class ProjectService {
 	}
 
 
-	public Project addProject(Project project) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	public void deleteProject(Integer projectId) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	public void modifyProjectDetails(Project project) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	public Project fetchProjectById(Integer projectId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
 	public List<Project> fetchAllProjects() {
 		// TODO Auto-generated method stub
-		return null;
+		return projectDao.fetchAllProjects();
 	}
+	
+	public Project fetchProjectById(Integer projectId) {
+		// TODO Auto-generated method stub
+		return projectDao.fetchProjectById(projectId).orElseThrow(() -> new NoSuchElementException("Project with project ID=" + projectId + "does not exist."));
+	}
+
 }
