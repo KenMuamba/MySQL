@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Locale.Category;
+import projects.entity.Category;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -64,7 +64,7 @@ public class ProjectDao extends DaoBase {
 
 
 	}
-
+	//*v*//
 	public List<Project> fetchAllProjects() {
 		
 		
@@ -76,7 +76,7 @@ public class ProjectDao extends DaoBase {
 	      try(PreparedStatement stmt = conn.prepareStatement(sql)) {
 	        try(ResultSet rs = stmt.executeQuery()) {
 	          List<Project> projects = new LinkedList<>();
-
+	        //*v*//
 	          while(rs.next()) {
 	            projects.add(extract(rs, Project.class));
 
@@ -96,7 +96,7 @@ public class ProjectDao extends DaoBase {
 	    }
 	  }
 
-	public Object fetchProjectById(Integer projectId) {
+	public Optional <Project>fetchProjectById(Integer projectId) {
 		String sql = "SELECT * FROM " + PROJECT_TABLE + " WHERE project_id = ?";
 
 	    try(Connection conn = DbConnection.getConnection()) {

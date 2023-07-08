@@ -19,6 +19,7 @@ public class ProjectsApp {
 	// @formatter:off
 	private List<String> operations = List.of(
 			"1) Add a project",
+			//vv1//
 			"2) List projects",
 			"3) Select a project"
 			);
@@ -90,7 +91,6 @@ public class ProjectsApp {
 	    System.out.println("You have successfully created project: " + dbProject);
 	}
 	private BigDecimal getDecimalInput(String prompt) {
-		// TODO Auto-generated method stub
 		String input = getStringInput(prompt);
 		 if (Objects.isNull(input)) {
 		        return null;
@@ -102,11 +102,9 @@ public class ProjectsApp {
 		    }
 	}
 	private boolean exitMenu() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 	private int getUserSelection() {
-		// TODO Auto-generated method stub
 		printOperations();
 	    Integer input = getIntInput("Enter a menu selection");
 	    if (input == null) {
@@ -129,7 +127,6 @@ public class ProjectsApp {
 	}
 
 	private Integer getIntInput(String prompt) {
-		// TODO Auto-generated method stub
 		 String input = getStringInput(prompt);
 		 if (Objects.isNull(input)) {
 		        return null;
@@ -141,7 +138,6 @@ public class ProjectsApp {
 		    }
 	}
 	private String getStringInput(String prompt) {
-		// TODO Auto-generated method stub
 		 System.out.print(prompt + ": ");
 	        String input = scanner.nextLine();
 
